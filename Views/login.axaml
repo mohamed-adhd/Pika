@@ -5,14 +5,17 @@
     x:Class="live_message_app.Views.LoginView"
     x:DataType="vm:LoginViewModel">
     <Grid>
-    <TextBlock Text="LOGIN PAGE"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Top"/>
+        <TextBlock IsVisible="{Binding !Found}" Text="nigga u fucked up"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+        <TextBlock Text="LOGIN PAGE"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"/>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-    <TextBox Background="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="username"></TextBox>
-    <TextBox Background="DarkGray"  HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="password"></TextBox> 
+    <TextBox Text="{Binding Username}" Background="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="username"></TextBox>
+    <TextBox Text="{Binding Password}" Background="DarkGray"  HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="password"></TextBox> 
     <Button Content="go to register" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding GoToRegisterCommand}"></Button>
-    <Button Content="go to main menu" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding GoToMenuCommand}"></Button>
+    <Button Content="login" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CheckLoginCommand}"></Button>
     </StackPanel>
     
     </Grid>

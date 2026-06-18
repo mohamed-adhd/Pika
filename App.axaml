@@ -30,10 +30,7 @@
             
         </DataTemplate>
         
-        <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
-            <views:LoginView/>
-            
-        </DataTemplate>
+        
     </Application.DataTemplates>    
              
              
