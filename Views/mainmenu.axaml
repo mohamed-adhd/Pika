@@ -2,12 +2,13 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:vm="using:live_message_app.ViewModels"
-    x:Class="live_message_app.Views.register"
-    x:DataType="vm:RegisterViewModel">
+    x:Class="live_message_app.Views.MainMenu"
+    x:DataType="vm:MainMenuViewModel">
     <StackPanel>
-        <TextBlock Text="register"
+        <TextBlock Text="main menu PAGE"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
-        <Button Content="go to login" Command="{Binding GoToLoginCommand}"/>
+    
+        <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
     </StackPanel>
 </UserControl>

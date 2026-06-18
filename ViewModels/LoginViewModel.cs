@@ -17,7 +17,12 @@ public partial class LoginViewModel : ViewModelBase
     [RelayCommand]
     private void GoToRegister()
     {
-        _main.Currentpage = new RegisterViewModel();
+        _main.Currentpage = new RegisterViewModel(_main);
+    }
+    [RelayCommand]
+    private void GoToMenu()
+    {
+        _main.Currentpage = new MainMenuViewModel(_main);
     }
 }
 

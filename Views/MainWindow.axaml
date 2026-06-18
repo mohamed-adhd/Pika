@@ -8,7 +8,7 @@
         Title="Live Messenger">
 
     <Grid>
-
+        
         <ContentControl Content="{Binding Currentpage}"/>
     </Grid>
     

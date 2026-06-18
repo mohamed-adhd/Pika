@@ -24,6 +24,16 @@
             <views:register/>
             
         </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:MainMenuViewModel}">
+            <views:MainMenu/>
+            
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:RegisterViewModel}">
+            <views:LoginView/>
+            
+        </DataTemplate>
     </Application.DataTemplates>    
              
              

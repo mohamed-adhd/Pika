@@ -11,6 +11,7 @@
     
     
     <Button Content="go to register" Command="{Binding GoToRegisterCommand}"></Button>
+    <Button Content="go to main menu" Command="{Binding GoToMenuCommand}"></Button>
     
     
     </StackPanel>

@@ -1,14 +1,16 @@
 namespace live_message_app.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-public partial class RegisterViewModel: ViewModelBase
+public partial class MainMenuViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel _main;
 
-    public RegisterViewModel(MainWindowViewModel main)
+    public MainMenuViewModel(MainWindowViewModel main)
     {
         _main = main;
     }
+    
+    
     [RelayCommand]
     private void GoToLogin()
     {
@@ -16,3 +18,5 @@ public partial class RegisterViewModel: ViewModelBase
     }
     
 }
+
+
