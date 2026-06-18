@@ -1,15 +1,16 @@
 <UserControl
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    x:Class="live_message_app.Views.LoginView">
-
+    xmlns:vm="using:live_message_app.ViewModels"
+    x:Class="live_message_app.Views.LoginView"
+    x:DataType="vm:LoginViewModel">
     <StackPanel>
     <TextBlock Text="LOGIN PAGE"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"/>
     
     
-    <Button Content="go to register" Command="{binding gotoregisterCommand}"></Button>
+    <Button Content="go to register" Command="{Binding GoToRegisterCommand}"></Button>
     
     
     </StackPanel>

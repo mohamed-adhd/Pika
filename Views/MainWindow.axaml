@@ -1,18 +1,15 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:live_message_app.ViewModels"
         x:Class="live_message_app.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
         Width="1200"
         Height="720"
         Title="Live Messenger">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Text="chats" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0" FontSize="30"/>
-        <TextBlock Text="users" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1"  FontSize="30"/>
-        <ContentControl Content="{Binding CurrentPage}"/>
+
+        <ContentControl Content="{Binding Currentpage}"/>
     </Grid>
     
     
