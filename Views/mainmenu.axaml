@@ -10,6 +10,27 @@
                    VerticalAlignment="Center"/>
     
         <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
-        <Button Content="settings" HorizontalAlignment="Left" Command="{Binding GoToLoginCommand}"/>
+        <Button Content="settings" HorizontalAlignment="Left" Command="{Binding open_inviteCommand}"/>
+        <Border IsVisible="{Binding Is_invite_open}" Background="#99505010">
+            <Border Width="400" Height="720" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
+                    <StackPanel>
+                        <TextBlock Text="adding friends!" FontSize="12"></TextBlock>
+                        <TextBox PlaceholderText="username"></TextBox>
+                        <Button Content="X" Command="{Binding close_inviteCommand}"></Button>
+        
+        
+        
+        
+        
+                    </StackPanel>
+        </Border>
+        </Border>
+        
+        
+        
+        
+        
+        
+        
     </StackPanel>
 </UserControl>
