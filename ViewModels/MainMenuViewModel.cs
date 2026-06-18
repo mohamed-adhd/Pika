@@ -25,6 +25,7 @@ public partial class MainMenuViewModel : ViewModelBase
     private void open_invite()
     {
         Is_invite_open = true;
+        Is_setting_open = false;
     }
     [RelayCommand]
     private void close_invite()
@@ -35,6 +36,7 @@ public partial class MainMenuViewModel : ViewModelBase
     private void open_setting()
     {
         Is_setting_open = true;
+        Is_invite_open = false;
     }
     [RelayCommand]
     private void close_setting()
