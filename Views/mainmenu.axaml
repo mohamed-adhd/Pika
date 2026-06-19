@@ -5,68 +5,45 @@
     x:Class="live_message_app.Views.MainMenu"
     x:DataType="vm:MainMenuViewModel">
     <Grid>
-        <!-- aint gon lie , ts became easier than i thought, jsut some javascript and some html lmao-->
+        <!-- ain't gon lie , ts became easier than i thought, jsut some javascript and some html lmao-->
         <Grid ColumnDefinitions="280,*">
             <Border Grid.Column="0" Background="#16213E">
                 <Grid RowDefinitions="Auto,Auto,*,Auto">
             <Grid Grid.Row="0" Margin="12,12,12,8" ColumnDefinitions="*,Auto,Auto">
             <TextBlock Grid.Column="0" Text="messages" FontSize="16" FontWeight="Medium"></TextBlock>
             <Button Grid.Column="1" Width="32" Height="32" CornerRadius="8" Background="#1A2744" Command="{Binding open_inviteCommand}" Content="+"/>
-            <Button Grid.Column="2" Width="32" Height="32" CornerRadius="8" Background="#1A2744" Command="{Binding open_inviteCommand}" Content="⚙"/>
+            <Button Grid.Column="2" Width="32" Height="32" CornerRadius="8" Background="#1A2744" Command="{Binding open_settingCommand}" Content="⚙"/>
             </Grid>
                     <TextBox Grid.Row="1" Margin="12,0,12,8" PlaceholderText="Search..." Background="#0D1829" CornerRadius="8" Padding="10,8"/>
                     <ScrollViewer Grid.Row="2">
-                        <ItemsControl ItemsSource="{Binding }"></ItemsControl>
+                        <ItemsControl ></ItemsControl>
                         
                     </ScrollViewer>
                     <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>
                 </Grid>
-                </Grid>
             </Border>
-    
-                <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
-        <Button Content="settings" HorizontalAlignment="Right" Command="{Binding open_settingCommand}"/>
-        <Border IsVisible="{Binding Is_invite_open}" Background="#99505010">
-            <Border Background="DarkRed" Width="400" Height="720" HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
-                    <StackPanel>
-                        <TextBlock Text="adding friends!" FontSize="12"></TextBlock>
-                        <TextBox PlaceholderText="username"></TextBox>
-                        <Button Content="X" Command="{Binding close_inviteCommand}"></Button>
-        
-        
-        
-        
-        
-                    </StackPanel>
-        </Border>
-        
-            
-            
-            
-        </Border>
-        <Border IsVisible="{Binding Is_setting_open}" Background="#99505010">
-            <Border Background="DarkRed" Width="1180" Height="700" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="12" Padding="20"> 
-                <StackPanel>
-                    <TextBlock Text="settings!" FontSize="12"></TextBlock>
-                    <TextBox PlaceholderText="username"></TextBox>
-                    <Button Content="X" Command="{Binding close_settingCommand}"></Button>
-        
-        
-        
-        
-        
+            <Border Grid.Column="1" Background="#1A1A2E">
+            </Border>
+
+            </Grid>
+            <Border IsVisible="{Binding Is_invite_open}"
+                    Background="#0F172A" Width="300"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                <StackPanel Margin="16">
+                    <TextBlock Text="Add a friend" FontSize="14" Foreground="#E2E8F0"/>
+                    <TextBox PlaceholderText="@username" Margin="0,12,0,8"/>
+                    <Button Content="Send invite" HorizontalAlignment="Stretch"
+                            Background="#6366F1" Foreground="White" CornerRadius="8"/>
+                    <Button Content="✕" Command="{Binding close_inviteCommand}"/>
                 </StackPanel>
             </Border>
-        
-            
-            
-            
+        <Border IsVisible="{Binding Is_setting_open}"
+                Background="#88000000">  <!-- semi-transparent dark backdrop -->
+            <Border Background="#1E293B" Width="480" Height="380"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    CornerRadius="12" Padding="0">
+                <!-- hold on i ll add ts later ,and avalonia stop messing with my fucking comments why u got my ass talking like a british 90s man...-->
+            </Border>
         </Border>
-        
-        
-        
-        
-        
-        
-    </Grid>
+        </Grid>
 </UserControl>

@@ -5,7 +5,7 @@ namespace live_message_app.Services;
 using static Console;
 public class database
 {
-    private string path = "Data Source=/home/bro/my-creations/live-message-app/databases/data.db ";
+    private string path = "Data Source=/home/bro/my-creations/live-message-app/databases/admin.db ";
     public bool check_login(string username, string passwd)
     {
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(passwd))
