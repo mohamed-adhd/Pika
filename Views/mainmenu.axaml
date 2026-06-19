@@ -4,11 +4,13 @@
     xmlns:vm="using:live_message_app.ViewModels"
     x:Class="live_message_app.Views.MainMenu"
     x:DataType="vm:MainMenuViewModel">
-    <StackPanel>
-        <TextBlock Text="main menu PAGE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
-    
+    <Grid>
+        <!-- aint gon lie , ts became easier than i thought, jsut some javascript and some html lmao-->
+        <Grid ColumnDefinitions="280,*">
+            <Border Grid.Column="0" Background="#16213E">
+                <Grid RowDefinitions="Auto,Auto,*,Auto">
+            <Grid Grid.Row="0" Margin="12,12,12,8" ColumnDefinitions="*,Auto,Auto">
+            <TextBlock Grid.Column="0" Text="messages"></TextBlock>
         <Button Content=" logout " HorizontalAlignment="Center" Command="{Binding GoToLoginCommand}"></Button>
         <Button Content="add" HorizontalAlignment="Left" Command="{Binding open_inviteCommand}"/>
         <Button Content="settings" HorizontalAlignment="Right" Command="{Binding open_settingCommand}"/>
@@ -54,5 +56,5 @@
         
         
         
-    </StackPanel>
+    </Grid>
 </UserControl>
