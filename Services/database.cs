@@ -8,10 +8,10 @@ using static Console;
 
 public struct Messagestruct
 {
-    public string Text;
-    public int from_id;
-    public int to_id;
-    public int order;
+    public string Text{ get; set; }
+    public int from_id{ get; set; }
+    public int to_id{ get; set; }
+    public int order{ get; set; }
 
     
 }
@@ -113,7 +113,7 @@ public class database
         using var ls =cmd.ExecuteReader()!;
         while (ls.Read())
         {
-            Messagestruct temp;
+            Messagestruct temp=new();
             temp.from_id = ls.GetInt32(0);
             temp.to_id = ls.GetInt32(1);
             temp.Text = ls.GetString(2);
@@ -195,7 +195,7 @@ public class database
         using var res=cmd.ExecuteReader()!;
         while (res.Read())
         {
-            Messagestruct temp;
+            Messagestruct temp=new();
             temp.from_id = res.GetInt32(0);
             temp.to_id = res.GetInt32(1);
             temp.Text = res.GetString(2);
