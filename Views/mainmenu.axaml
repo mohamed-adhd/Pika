@@ -87,8 +87,89 @@
                     <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>
                 </Grid>
             </Border>
-            <Border Grid.Column="1" Background="#1A1A2E">
-            </Border>
+                            <!-- CHAT ZONE / column 1 -->
+                <Grid Grid.Column="1"
+                      RowDefinitions="60,*,70"
+                      Background="#0B1020">
+
+                    <!-- Header -->
+                    <Border Grid.Row="0"
+                            Background="#10182B"
+                            Padding="18,10"
+                            BorderBrush="#1A2744"
+                            BorderThickness="0,0,0,1">
+
+                        <TextBlock Text="{Binding SelectedUser.username}"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+
+
+                    <!-- Messages -->
+                    <ScrollViewer Grid.Row="1"
+                                  Padding="18"
+                                  VerticalScrollBarVisibility="Auto">
+
+                        <ItemsControl ItemsSource="{Binding SelectedMessages}">
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="services:Messagestruct">
+
+                                    <Border Background="#1A2744"
+                                            CornerRadius="14"
+                                            Padding="12,8"
+                                            Margin="0,4,0,4"
+                                            MaxWidth="420"
+                                            HorizontalAlignment="Left">
+
+                                        <TextBlock Text="{Binding Text}"
+                                                   Foreground="White"
+                                                   FontSize="15"
+                                                   TextWrapping="Wrap"/>
+
+                                    </Border>
+
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+
+                        </ItemsControl>
+
+                    </ScrollViewer>
+
+
+                    <!-- Send box -->
+                    <Border Grid.Row="2"
+                            Background="#10182B"
+                            Padding="14"
+                            BorderBrush="#1A2744"
+                            BorderThickness="0,1,0,0">
+
+                        <Grid ColumnDefinitions="*,90"
+                              ColumnSpacing="10">
+
+                            <TextBox Grid.Column="0"
+                                     Text="{Binding MessageToSend}"
+                                     Watermark="Type a message..."
+                                     Background="#0B1020"
+                                     Foreground="White"
+                                     BorderBrush="#274B7A"
+                                     CornerRadius="10"
+                                     Padding="12"/>
+
+                            <Button Grid.Column="1"
+                                    Content="Send"
+                                    Command="{Binding SendMessageCommand}"
+                                    Background="#274B7A"
+                                    Foreground="White"
+                                    CornerRadius="10"/>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
 
             </Grid>
             <Border IsVisible="{Binding Is_invite_open}"

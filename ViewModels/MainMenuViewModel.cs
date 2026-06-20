@@ -17,6 +17,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty]private List<user> flist = new();
     [ObservableProperty] private user selectedUser;
     [ObservableProperty] private user selectedChats;
+    [ObservableProperty] private string messageToSend="";
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
@@ -55,6 +56,13 @@ public partial class MainMenuViewModel : ViewModelBase
     {
         Is_setting_open = false;
     }
+    [RelayCommand]
+    private void SendMessage()
+    {
+        int ord=db.neword(_main.Id,SelectedUser.id)
+        db.addmsg(MessageToSend,_main.Id,SelectedUser.id);
+    }
+    
 }
 
 
