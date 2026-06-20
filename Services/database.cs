@@ -88,8 +88,14 @@ public class database
             cmdo.Parameters.AddWithValue("$d3", id2);
             cmdo.Parameters.AddWithValue("$d4", id);
             using var reso = cmdo.ExecuteReader()!;
-            reso.Read();
-            temp.name=reso.GetString(0);
+            if (reso.Read())
+            {
+                temp.LastMessage = reso.GetString(0);
+            }
+            else
+            {
+                temp.LastMessage = "";
+            }
         }
 
         return temp;
