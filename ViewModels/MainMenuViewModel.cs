@@ -59,8 +59,8 @@ public partial class MainMenuViewModel : ViewModelBase
     [RelayCommand]
     private void SendMessage()
     {
-        int ord=db.neword(_main.Id,SelectedUser.id)
-        db.addmsg(MessageToSend,_main.Id,SelectedUser.id);
+        int ord = db.neword(_main.Id, SelectedUser.id);
+        db.addmsg(MessageToSend,_main.Id,SelectedUser.id,ord);
     }
     
 }

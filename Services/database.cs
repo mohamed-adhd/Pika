@@ -150,5 +150,20 @@ public class database
 
         return friends;
     }
+    public int  neword(int id1,int id2){
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText = """SELECT "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" DESC LIMIT 1""";
+        cmd.Parameters.AddWithValue("$id1", id1);
+        cmd.Parameters.AddWithValue("$id2", id2);
+        cmd.Parameters.AddWithValue("$id3", id2);
+        cmd.Parameters.AddWithValue("$id4", id1);
+
+        using var res = cmd.ExecuteReader()!;
+        res.Read();
+        return res.GetInt32(0)+1;
+    }
+    db.addmsg(MessageToSend,_main.Id,SelectedUser.id);
     
 }
