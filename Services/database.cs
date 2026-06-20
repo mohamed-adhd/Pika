@@ -180,23 +180,31 @@ public class database
 
     }
     
-    public List<Messagestruct> selecmsg(int fid, int tid)
+    public List<Messagestruct> selecmsg(int id1, int id2)
     {
-        List<Mess
+        List<Messagestruct> tempo = new();
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
         cmd.CommandText = """SELECT "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" DESC""";;
-        cmd.Parameters.AddWithValue("$user", fid);
-        cmd.Parameters.AddWithValue("$name", tid);
-        cmd.Parameters.AddWithValue("$passwd", txt);
-        cmd.Parameters.AddWithValue("$gmail", order);
+        cmd.Parameters.AddWithValue("$id1", id1);
+        cmd.Parameters.AddWithValue("$id2", id2);
+        cmd.Parameters.AddWithValue("$id3", id2);
+        cmd.Parameters.AddWithValue("$id4", id1);
         
         using var res=cmd.ExecuteReader()!;
         while (res.Read())
         {
-            
+            Messagestruct temp;
+            temp.from_id = res.GetInt32(0);
+            temp.to_id = res.GetInt32(1);
+            temp.Text = res.GetString(2);
+            temp.order = res.GetInt32(3);
+            tempo.Add(temp);
+
         }
+
+        return tempo;
 
     }
     
