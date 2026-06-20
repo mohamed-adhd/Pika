@@ -186,7 +186,7 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText = """SELECT "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" DESC""";;
+        cmd.CommandText = """SELECT from_id, to_id, text, "order" FROM chats WHERE (from_id=$id1 and to_id=$id2) or (from_id=$id3 and to_id=$id4) ORDER BY "order" DESC""";;
         cmd.Parameters.AddWithValue("$id1", id1);
         cmd.Parameters.AddWithValue("$id2", id2);
         cmd.Parameters.AddWithValue("$id3", id2);

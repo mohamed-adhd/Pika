@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using Tmds.DBus.Protocol;
 using live_message_app.Services;
-using Message = Tmds.DBus.Protocol.Message;
-
+using static System.Console;
 namespace live_message_app.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -16,14 +15,17 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty]private List<Messagestruct> messageslist = new();
     [ObservableProperty]private List<user> flist = new();
     [ObservableProperty] private user? selectedUser;
-    [ObservableProperty] private List<Messagestruct> selectedMessages;
+    [ObservableProperty] private List<Messagestruct> selectedMessages=new();
     [ObservableProperty] private string messageToSend="";
     partial void OnSelectedUserChanged(user? value)
     {
+        WriteLine($"Selected user: {value?.username}");
         if (value == null)
             return;
 
         SelectedMessages = db.selecmsg(_main.Id,SelectedUser.id);
+        WriteLine($"Messages loaded: {SelectedMessages.Count}");        
+        MessageToSend = "";
 
         
     }
