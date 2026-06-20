@@ -15,9 +15,18 @@ public partial class MainMenuViewModel : ViewModelBase
 
     [ObservableProperty]private List<Messagestruct> messageslist = new();
     [ObservableProperty]private List<user> flist = new();
-    [ObservableProperty] private user selectedUser;
-    [ObservableProperty] private user selectedMessages;
+    [ObservableProperty] private user? selectedUser;
+    [ObservableProperty] private List<Messagestruct> selectedMessages;
     [ObservableProperty] private string messageToSend="";
+    partial void OnSelectedUserChanged(user? value)
+    {
+        if (value == null)
+            return;
+
+        SelectedMessages = db.selecmsg(_main.Id,SelectedUser.id);
+
+        
+    }
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
