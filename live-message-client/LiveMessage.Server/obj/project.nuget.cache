@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CYUcx3vnldk=",
+  "success": true,
+  "projectFilePath": "/home/bro/my-creations/live-message-app/live-message-client/LiveMessage.Server/LiveMessage.Server.csproj",
+  "expectedPackageFiles": [
+    "/home/bro/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.8/microsoft.aspnetcore.app.ref.10.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
