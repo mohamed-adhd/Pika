@@ -1,5 +1,8 @@
 using System.Data;
 using System.Net.Sockets;
+using System.Text;
+using System.Text.Json;
+using System.Text.Encodings.Web;
 namespace live_message_app.Services;
 
 
@@ -29,8 +32,14 @@ public class Network
         {
             return false;
         }
-
-        return true;
     }
+}
+public void sendpacket(packet tempo,TcpClient _client)
+{
+    string json = JsonSerializer.Serialize(tempo);
+    byte[] data=Encoding.UTF8.GetBytes(json);
+    NetworkStream stream = _client.GetStream();
+    stream.Write(data);
+
 }
 
