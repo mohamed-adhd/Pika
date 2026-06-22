@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/bro/my-creations/live-message-app/live-message-app.csproj": {}
+    "/home/bro/my-creations/live-message-app/live-messagge-app/live-message-app.csproj": {}
   },
   "projects": {
-    "/home/bro/my-creations/live-message-app/live-message-app.csproj": {
+    "/home/bro/my-creations/live-message-app/live-messagge-app/live-message-app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bro/my-creations/live-message-app/live-message-app.csproj",
+        "projectUniqueName": "/home/bro/my-creations/live-message-app/live-messagge-app/live-message-app.csproj",
         "projectName": "live-message-app",
-        "projectPath": "/home/bro/my-creations/live-message-app/live-message-app.csproj",
+        "projectPath": "/home/bro/my-creations/live-message-app/live-messagge-app/live-message-app.csproj",
         "packagesPath": "/home/bro/.nuget/packages/",
-        "outputPath": "/home/bro/my-creations/live-message-app/obj/",
+        "outputPath": "/home/bro/my-creations/live-message-app/live-messagge-app/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/bro/.nuget/NuGet/NuGet.Config"

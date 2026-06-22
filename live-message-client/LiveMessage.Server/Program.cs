@@ -3,11 +3,11 @@ using System.Net.Sockets;
 
 TcpListener server = new TcpListener(IPAddress.Any, 5000);
 server.Start();
-Console.WriteLine("Server started on port 5000");
+Console.WriteLine("Server started on port 6969");
 
 while (true)
 {
     TcpClient client = server.AcceptTcpClient();
 
-    Console.WriteLine("Client connected");
+    Console.WriteLine("client connected");
 }

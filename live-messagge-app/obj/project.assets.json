@@ -1961,11 +1961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/bro/my-creations/live-message-app/live-message-app.csproj",
+      "projectUniqueName": "/home/bro/my-creations/live-message-app/live-messagge-app/live-message-app.csproj",
       "projectName": "live-message-app",
-      "projectPath": "/home/bro/my-creations/live-message-app/live-message-app.csproj",
+      "projectPath": "/home/bro/my-creations/live-message-app/live-messagge-app/live-message-app.csproj",
       "packagesPath": "/home/bro/.nuget/packages/",
-      "outputPath": "/home/bro/my-creations/live-message-app/obj/",
+      "outputPath": "/home/bro/my-creations/live-message-app/live-messagge-app/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/bro/.nuget/NuGet/NuGet.Config"
@@ -2326,5 +2326,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q",
+      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

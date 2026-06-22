@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LiveMessage.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf293dd2ca2f0b42a74652b34cb75496d040dfc1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+513c90d0f78c06c79f78cf50434de805a30e9dde")]
 [assembly: System.Reflection.AssemblyProductAttribute("LiveMessage.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LiveMessage.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
