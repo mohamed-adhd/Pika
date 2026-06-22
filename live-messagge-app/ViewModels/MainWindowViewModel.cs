@@ -22,7 +22,11 @@ public partial class MainWindowViewModel : ObservableObject
         currentpage = new LoginViewModel(this);
         if (Connected)
         {
-            Task.Run(() => network.start_recieving());
+            Task.Run(() =>
+            {
+                packet p=network.start_recieving();
+                
+            });
         }
         
 

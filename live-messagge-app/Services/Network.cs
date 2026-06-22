@@ -44,7 +44,7 @@ public class Network
 
     }
 
-    public void start_recieving()
+    public packet start_recieving()
     {
         NetworkStream stream = _client.GetStream();
         byte[] buffer = new byte[4096];
@@ -54,6 +54,8 @@ public class Network
             string tempo = Encoding.UTF8.GetString(buffer,0,bytes);
             WriteLine("packet broadcasted:");
             WriteLine(tempo);
+            packet ? p =JsonSerializer.Deserialize<packet>(tempo);
+            return p;
         }
     }
 }
