@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net.Sockets;
 using Tmds.DBus.Protocol;
 using live_message_app.Services;
 using static System.Console;
@@ -17,6 +18,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty] private user? selectedUser;
     [ObservableProperty] private List<Messagestruct> selectedMessages=new();
     [ObservableProperty] private string messageToSend="";
+    
     partial void OnSelectedUserChanged(user? value)
     {
         WriteLine($"Selected user: {value?.username}");
@@ -72,6 +74,17 @@ public partial class MainMenuViewModel : ViewModelBase
     {
         int ord = db.neword(_main.Id, SelectedUser.id);
         db.addmsg(MessageToSend,_main.Id,SelectedUser.id,ord);
+    }
+
+    [RelayCommand]
+    private void send_message()
+    {
+        packet temp=new();
+        temp.Text = messageToSend;
+        temp.Type = "message";
+        temp.From = _main.Id;
+        temp.To = SelectedUser.id;
+
     }
     
 }
