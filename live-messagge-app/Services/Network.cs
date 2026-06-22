@@ -1,10 +1,11 @@
+using System;
 using System.Data;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using System.Text.Encodings.Web;
 namespace live_message_app.Services;
-
+using static System.Console;
 
 public class packet
 {
@@ -40,6 +41,19 @@ public class Network
         NetworkStream stream = _client.GetStream();
         stream.Write(data);
 
+    }
+
+    public void start_recieving()
+    {
+        NetworkStream stream = _client.GetStream();
+        byte[] buffer = new byte[4096];
+        while (true)
+        {
+            int bytes = stream.Read(buffer, 0, buffer.Length);
+            string tempo = Encoding.UTF8.GetString(buffer,0,bytes);
+            WriteLine("packet broadcasted:");
+            WriteLine(tempo);
+        }
     }
 }
 

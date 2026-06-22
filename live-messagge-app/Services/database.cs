@@ -25,7 +25,7 @@ public class user
 }
 public class database
 {
-    private string path = "Data Source=/home/bro/my-creations/live-message-app/databases/admin.db ";
+    private string path = "Data Source=/home/bro/my-creations/live-message-app/live-messagge-app/databases/admin.db";
     public int check_login(string username, string passwd)
     {
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(passwd))
