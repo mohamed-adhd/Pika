@@ -24,5 +24,10 @@ void handle(TcpClient client)
         string tempo = Encoding.UTF8.GetString(buffer,0,bytes);
         Console.WriteLine("packet received:");
         Console.WriteLine(tempo);
+        foreach (TcpClient c in clients)
+        {
+            NetworkStream outsream = c.GetStream();
+            outsream.Write(buffer, 0, bytes);
+        }
     }
 }
