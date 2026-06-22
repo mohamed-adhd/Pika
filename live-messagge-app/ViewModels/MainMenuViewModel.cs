@@ -11,7 +11,7 @@ public partial class MainMenuViewModel : ViewModelBase
     private readonly MainWindowViewModel _main;
     [ObservableProperty]
     private bool is_invite_open = false,is_setting_open = false;
-    public readonly database db;
+
 
     [ObservableProperty]private List<Messagestruct> messageslist = new();
     [ObservableProperty]private List<user> flist = new();
@@ -25,7 +25,7 @@ public partial class MainMenuViewModel : ViewModelBase
         if (value == null)
             return;
 
-        SelectedMessages = db.selecmsg(_main.Id,SelectedUser.id);
+        SelectedMessages = _main.Db.selecmsg(_main.Id,SelectedUser.id);
         WriteLine($"Messages loaded: {SelectedMessages.Count}");        
         MessageToSend = "";
 
@@ -34,18 +34,13 @@ public partial class MainMenuViewModel : ViewModelBase
 
     public MainMenuViewModel(MainWindowViewModel main)
     {
-        db = new Services.database();
         _main = main;
-        Messageslist = db.Fetchmessages(_main.Id);
-        Flist = db.Fetchfriends(Messageslist, _main.Id);
+        Messageslist = _main.Db.Fetchmessages(_main.Id);
+        Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
 
-        if (_main.News)
-        {
-            int s = db.neword(_main.Updates.From, _main.Updates.From);
-            db.addmsg(_main.Updates.Text,_main.Updates.From,_main.Updates.To,s);
-            _main.News = false;
-        }
+        
     }
+
     
     
     [RelayCommand]
@@ -79,8 +74,8 @@ public partial class MainMenuViewModel : ViewModelBase
     [RelayCommand]
     private void SendMessage()
     {
-        int ord = db.neword(_main.Id, SelectedUser.id);
-        db.addmsg(MessageToSend,_main.Id,SelectedUser.id,ord);
+        int ord = _main.Db.neword(_main.Id, SelectedUser.id);
+        _main.Db.addmsg(MessageToSend,_main.Id,SelectedUser.id,ord);
     }
 
     [RelayCommand]

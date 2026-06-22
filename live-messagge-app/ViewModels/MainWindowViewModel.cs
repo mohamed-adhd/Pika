@@ -15,6 +15,7 @@ public partial class MainWindowViewModel : ObservableObject
     public Services.Network network=new();
     [ObservableProperty]private packet updates;
     [ObservableProperty]private bool news=false;
+    public database Db { get; } = new();
 
     public MainWindowViewModel()
     {
@@ -25,8 +26,14 @@ public partial class MainWindowViewModel : ObservableObject
         {
             Task.Run(() =>
             {
-                updates=network.start_recieving();
-                news = true;
+                while (Connected)
+                {
+                    updates = network.start_recieving();
+                    news = true;
+                    int s = Db.neword(Updates.From, Updates.To);
+                    Db.addmsg(Updates.Text, Updates.From, Updates.To, s);
+                    News = false;
+                }
 
             });
         }
