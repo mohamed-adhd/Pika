@@ -13,7 +13,8 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private int id;
     [ObservableProperty] private bool connected = false;
     public Services.Network network=new();
-    
+    [ObservableProperty]private packet updates;
+    [ObservableProperty]private bool news=true;
 
     public MainWindowViewModel()
     {
@@ -24,8 +25,9 @@ public partial class MainWindowViewModel : ObservableObject
         {
             Task.Run(() =>
             {
-                packet p=network.start_recieving();
-                
+                updates=network.start_recieving();
+                news = true;
+
             });
         }
         

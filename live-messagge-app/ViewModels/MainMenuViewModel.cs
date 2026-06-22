@@ -38,6 +38,12 @@ public partial class MainMenuViewModel : ViewModelBase
         _main = main;
         Messageslist = db.Fetchmessages(_main.Id);
         Flist = db.Fetchfriends(Messageslist, _main.Id);
+
+        if (_main.News)
+        {
+            int s = db.neword(_main.Updates.From, _main.Updates.From);
+            db.addmsg(_main.Updates.Text,_main.Updates.From,_main.Updates.To,s);
+        }
     }
     
     
