@@ -16,6 +16,11 @@ public struct Messagestruct
     
 }
 
+public class invites
+{
+    public int from_id{ get; set; }
+    public int to_id{ get; set; }
+}
 public class user
 {
     public int id{ get; set; }
@@ -246,6 +251,27 @@ public class database
         cmd.Parameters.AddWithValue("$ti",tid );
         cmd.ExecuteNonQuery();
 
+    }
+
+    public List<invites> fetch_invites(int id)
+    {
+        List<invites> tempo= new();
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText = "SELECT * FROM invites WHERE id=$id;";
+        cmd.Parameters.AddWithValue("$id", id);
+        using var res=cmd.ExecuteReader();
+        while (res.Read())
+        {
+            invites temp=new();
+            temp.from_id = res.GetInt32(0);
+            temp.to_id = res.GetInt32(1);
+            tempo.Add(temp);
+
+        }
+
+        return tempo;
     }
 
     
