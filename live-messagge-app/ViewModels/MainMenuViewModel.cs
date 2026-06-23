@@ -78,7 +78,7 @@ public partial class MainMenuViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void sendInvite()
+    private void SendInvite()
     {
         user temp = _main.Db.search_by_username(InviteUsername);
         _main.Db.add_invite(_main.Id, temp.id);

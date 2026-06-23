@@ -217,9 +217,37 @@ public class database
         using var con = new SqliteConnection(path);
         con.Open();
         var cmd = con.CreateCommand();
-        cmd.CommandText="INSERT INTO invites "
+        cmd.CommandText = "SELECT * FROM users  WHERE username=$d;";
+        cmd.Parameters.AddWithValue("$d", name);
+        cmd.ExecuteReader();
+        using var res= cmd.ExecuteReader();
+        if (res.Read())
+        {
+            user temp=new();
+            temp.id = res.GetInt32(0);
+            temp.name = res.GetString(1);
+            temp.username = res.GetString(2);
+            temp.LastMessage = "";
+            return temp;
+
+        }
+
+        return null;
+
     }
-    _main.Db.add_invite(_main.Id, temp.id);
+
+    public void add_invite(int fid, int tid)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText = "INSERT INTO invites (from_id,to_id) VALUES ($fi,$ti);";
+        cmd.Parameters.AddWithValue("$fi",fid );
+        cmd.Parameters.AddWithValue("$ti",tid );
+        cmd.ExecuteNonQuery();
+
+    }
+
     
     
 }
