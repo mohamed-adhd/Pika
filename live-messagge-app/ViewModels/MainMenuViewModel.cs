@@ -81,6 +81,13 @@ public partial class MainMenuViewModel : ViewModelBase
     [RelayCommand]
     private void SendInvite()
     {
+        packet temps=new();
+        temps.Text = InviteUsername;
+        temps.Type = "request";
+        temps.From = _main.Id;
+        temps.To = SelectedUser.id;
+        
+        _main.network.sendpacket(temps);
         user temp = _main.Db.search_by_username(InviteUsername);
         _main.Db.add_invite(_main.Id, temp.id);
     }
