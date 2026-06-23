@@ -15,6 +15,7 @@ public partial class MainWindowViewModel : ObservableObject
     public Services.Network network=new();
     [ObservableProperty]private packet updates;
     [ObservableProperty]private bool news=false;
+    
     public database Db { get; } = new();
 
     public MainWindowViewModel()
@@ -28,11 +29,13 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 while (Connected)
                 {
-                    Updates = network.start_recieving();
+                    var p = network.start_recieving();
                     News = true;
                     int s = Db.neword(Updates.From, Updates.To);
-                    Db.addmsg(Updates.Text, Updates.From, Updates.To, s);
+                    Db.addmsg(p.Text, p.From, p.To, s);
                     News = false;
+                    Updates = p;
+                    
                 }
 
             });

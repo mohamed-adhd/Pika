@@ -7,10 +7,12 @@ namespace live_message_app.ViewModels;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.ComponentModel;
+using live_message_app.Views;
 using Avalonia.Threading;
 public partial class MainMenuViewModel : ViewModelBase
 {
     private readonly MainWindowViewModel _main;
+    public Views.MainMenu _men;
     [ObservableProperty]
     private bool is_invite_open = false,is_setting_open = false;
 
@@ -112,6 +114,7 @@ public partial class MainMenuViewModel : ViewModelBase
 
             Messageslist = _main.Db.Fetchmessages(_main.Id);
             Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
+            
         });
     }
 

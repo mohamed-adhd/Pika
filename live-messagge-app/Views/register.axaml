@@ -1,20 +1,131 @@
 <UserControl
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vm="using:live_message_app.ViewModels"
-    x:Class="live_message_app.Views.register"
-    x:DataType="vm:RegisterViewModel">
-    <Grid >
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="go to login" Command="{Binding GoToLoginCommand}"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="{Binding Message}"></TextBlock>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox Text="{Binding Name}" PlaceholderText="name" Background="DarkGray"></TextBox>
-            <TextBox Text="{Binding Username}" PlaceholderText="username" Background="DarkGray"></TextBox>
-            <TextBox Text="{Binding Passwrd}" PlaceholderText="password" Background="DarkGray"></TextBox>
-            <TextBox Text="{Binding Cpasswd}" PlaceholderText="confirm password" Background="DarkGray"></TextBox>
-            <TextBox Text="{Binding Gmail}" PlaceholderText="gmail" Background="DarkGray"></TextBox>
-            <Button Content="register" Command="{Binding registerCommand}"></Button>
-        </StackPanel>
+       xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:vm="using:live_message_app.ViewModels"
+       x:Class="live_message_app.Views.register"
+       x:DataType="vm:RegisterViewModel">
+    <UserControl.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="CaretBrush" Value="White"/>
+        </Style>
+        <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#4F46E5"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#0B1020">
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#16213E"
+                CornerRadius="16"
+                Padding="40,36"
+                Width="360">
+            <StackPanel Spacing="0">
+                <TextBlock Text="Create account"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="join and start messaging"
+                           FontSize="13"
+                           Foreground="#64748B"
+                           HorizontalAlignment="Center"
+                           Margin="0,4,0,28"/>
+                <TextBlock Text="{Binding Message}"
+                           IsVisible="{Binding Message, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                           Foreground="#FCA5A5"
+                           FontSize="12"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,16"/> 
+                <TextBlock Text="Full name"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Name}"
+                         PlaceholderText="John Doe"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,14"/>
+                <TextBlock Text="Username"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Username}"
+                         PlaceholderText="@username"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,14"/>
+                <TextBlock Text="Gmail"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Gmail}"
+                         PlaceholderText="you@gmail.com"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,14"/>
+                <TextBlock Text="Password"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Passwrd}"
+                         PlaceholderText="••••••••"
+                         PasswordChar="•"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,14"/>
+                <TextBlock Text="Confirm password"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Cpasswd}"
+                         PlaceholderText="••••••••"
+                         PasswordChar="•"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,24"/>
+                <Button Classes="primary"
+                        Content="Create account"
+                        Command="{Binding registerCommand}"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Background="#6366F1"
+                        Foreground="White"
+                        CornerRadius="8"
+                        Padding="0,11"
+                        FontSize="14"
+                        FontWeight="Medium"/>
+                <Button Content="already have an account? sign in"
+                        Command="{Binding GoToLoginCommand}"
+                        HorizontalAlignment="Center"
+                        Background="Transparent"
+                        Foreground="#64748B"
+                        FontSize="12"
+                        Margin="0,16,0,0"/>
+        
+        
+        
+        
+            </StackPanel>
+        </Border>
+
+        <TextBlock Text="{Binding Message}"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Foreground="#475569"
+                   FontSize="11"
+                   Margin="12"/>
+
     </Grid>
 </UserControl>
 
