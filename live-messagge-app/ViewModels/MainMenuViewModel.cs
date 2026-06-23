@@ -16,7 +16,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty]
     private bool is_invite_open = false,is_setting_open = false;
 
-
+    [ObservableProperty] private List<invites> pendingInvites;
     [ObservableProperty]private List<Messagestruct> messageslist = new();
     [ObservableProperty]private List<user> flist = new();
     [ObservableProperty] private user? selectedUser;

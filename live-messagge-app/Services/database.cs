@@ -18,6 +18,7 @@ public struct Messagestruct
 
 public class invites
 {
+    public string username{ get; set; }
     public int from_id{ get; set; }
     public int to_id{ get; set; }
 }
@@ -70,6 +71,22 @@ public class database
         
     }
 
+    public string get_username(int id)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText="SELECT username FROM users WHERE id=$d;";
+        cmd.Parameters.AddWithValue("$d", id);
+        using var res = cmd.ExecuteReader()!;
+        //!Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");-->
+        user temp=new();
+
+        res.Read();
+        return res.GetString(0);
+
+
+    }
     public user search_by_id(int id,int id2)
     {
         using var con = new SqliteConnection(path);
@@ -267,11 +284,17 @@ public class database
             invites temp=new();
             temp.from_id = res.GetInt32(0);
             temp.to_id = res.GetInt32(1);
+            temp.username = get_username(temp.from_id);
             tempo.Add(temp);
 
         }
 
         return tempo;
+    }
+
+    public void add_friends(int id1, int id2)
+    {
+        
     }
 
     
