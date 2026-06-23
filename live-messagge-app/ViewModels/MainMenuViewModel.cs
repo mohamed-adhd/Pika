@@ -90,7 +90,6 @@ public partial class MainMenuViewModel : ViewModelBase
         
         _main.network.sendpacket(temps);
         user temp = _main.Db.search_by_username(InviteUsername);
-        _main.Db.add_invite(_main.Id, temp.id);
     }
     [RelayCommand]
     private void SendMessage()
