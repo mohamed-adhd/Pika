@@ -4,23 +4,102 @@
     xmlns:vm="using:live_message_app.ViewModels"
     x:Class="live_message_app.Views.LoginView"
     x:DataType="vm:LoginViewModel">
-    <Grid>
-        <TextBlock  Text="{Binding Connection_status}"
+
+    <UserControl.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="CaretBrush" Value="White"/>
+        </Style>
+        <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#4F46E5"/>
+        </Style>
+        <Style Selector="Button.secondary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#1A2744"/>
+        </Style>
+    </UserControl.Styles>
+    <Grid Background="#0B1020">
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#16213E"
+                CornerRadius="16"
+                Padding="40,36"
+                Width="360">
+            <StackPanel Spacing="0">
+                <TextBlock Text="Welcome back"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="sign in to continue"
+                           FontSize="13"
+                           Foreground="#64748B"
+                           HorizontalAlignment="Center"
+                           Margin="0,4,0,28"/>
+
+                <!-- Error message -->
+                <Border IsVisible="{Binding !Found}"
+                        Background="#2D1515"
+                        BorderBrush="#7F1D1D"
+                        BorderThickness="1"
+                        CornerRadius="8"
+                        Padding="12,8"
+                        Margin="0,0,0,16">
+                    <TextBlock Text="incorrect username or password"
+                               Foreground="#FCA5A5"
+                               FontSize="13"
+                               HorizontalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Username"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Username}"
+                         PlaceholderText="@username"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,16"/>
+                <TextBlock Text="Password"
+                           Foreground="#94A3B8"
+                           FontSize="12"
+                           Margin="0,0,0,6"/>
+                <TextBox Text="{Binding Password}"
+                         PlaceholderText="••••••••"
+                         PasswordChar="•"
+                         Background="#0D1829"
+                         BorderBrush="#1A2744"
+                         CornerRadius="8"
+                         Padding="12,10"
+                         Margin="0,0,0,24"/>
+                <Button Classes="primary"
+                        Content="Sign in"
+                        Command="{Binding CheckLoginCommand}"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Background="#6366F1"
+                        Foreground="White"
+                        CornerRadius="8"
+                        Padding="0,11"
+                        FontSize="14"
+                        FontWeight="Medium"/>
+                <Button Classes="secondary"
+                        Content="don't have an account? register"
+                        Command="{Binding GoToRegisterCommand}"
+                        HorizontalAlignment="Center"
+                        Background="Transparent"
+                        Foreground="#64748B"
+                        FontSize="12"
+                        Margin="0,16,0,0"/>
+
+            </StackPanel>
+        </Border>
+        <TextBlock Text="{Binding Connection_status}"
                    HorizontalAlignment="Left"
-                   VerticalAlignment="Bottom"/>
-        <TextBlock IsVisible="{Binding !Found}" Text="nigga u fucked up"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"/>
-        <TextBlock Text="LOGIN PAGE"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"/>
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-    <TextBox Text="{Binding Username}" Background="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="username"></TextBox>
-    <TextBox Text="{Binding Password}" Background="DarkGray"  HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="password"></TextBox> 
-    <Button Content="go to register" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding GoToRegisterCommand}"></Button>
-    <Button Content="login" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CheckLoginCommand}"></Button>
-    </StackPanel>
-    
+                   VerticalAlignment="Bottom"
+                   Foreground="#475569"
+                   FontSize="11"
+                   Margin="12"/>
     </Grid>
     
 </UserControl>

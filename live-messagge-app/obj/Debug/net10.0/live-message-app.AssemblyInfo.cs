@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("live-message-app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9721ca089f68bd7a1887f92246608f2c40afd402")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c5ebab7598f8beec8be5f31f75456aef5ed5670")]
 [assembly: System.Reflection.AssemblyProductAttribute("live-message-app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("live-message-app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
