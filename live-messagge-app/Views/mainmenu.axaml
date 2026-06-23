@@ -138,18 +138,13 @@
                         </ItemsControl>
 
                     </ScrollViewer>
-
-
-
                     <Border Grid.Row="2"
                             Background="#10182B"
                             Padding="14"
                             BorderBrush="#1A2744"
                             BorderThickness="0,1,0,0">
-
                         <Grid ColumnDefinitions="*,90"
                               ColumnSpacing="10">
-
                             <TextBox Grid.Column="0"
                                      Text="{Binding MessageToSend}"
                                      Watermark="Type a message..."
@@ -158,32 +153,94 @@
                                      BorderBrush="#274B7A"
                                      CornerRadius="10"
                                      Padding="12"/>
-
                             <Button Grid.Column="1"
                                     Content="Send"
                                     Command="{Binding SendMessageCommand}"
                                     Background="#274B7A"
                                     Foreground="White"
                                     CornerRadius="10"/>
-
                         </Grid>
-
                     </Border>
-
                 </Grid>
-
             </Grid>
             <Border IsVisible="{Binding Is_invite_open}"
-                    Background="#0F172A" Width="300"
-                    HorizontalAlignment="Right" VerticalAlignment="Stretch">
-                <StackPanel Margin="16">
-                    <TextBlock Text="Add a friend" FontSize="14" Foreground="#E2E8F0"/>
-                    <TextBox PlaceholderText="@username" Margin="0,12,0,8"/>
-                    <Button Content="Send invite" HorizontalAlignment="Stretch"
-                            Background="#6366F1" Foreground="White" CornerRadius="8"/>
-                    <Button Content="✕" Command="{Binding close_inviteCommand}"/>
-                </StackPanel>
-            </Border>
+        Background="#0F172A" Width="300"
+        HorizontalAlignment="Right" VerticalAlignment="Stretch"
+        BorderBrush="#1A2744" BorderThickness="1,0,0,0">
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+        <Grid Grid.Row="0" Margin="16,16,16,12" ColumnDefinitions="*,Auto">
+            <TextBlock Grid.Column="0" Text="Add a friend"
+                       FontSize="15" FontWeight="Bold" Foreground="#E2E8F0"
+                       VerticalAlignment="Center"/>
+            <Button Grid.Column="1" Content="✕"
+                    Command="{Binding close_inviteCommand}"
+                    Background="Transparent" Foreground="#64748B"
+                    Width="28" Height="28" Padding="0"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="16,0,16,16" Spacing="8">
+            <TextBox PlaceholderText="@username"
+                     Text="{Binding InviteUsername}"
+                     Background="#0D1829"
+                     BorderBrush="#1A2744"
+                     CornerRadius="8"
+                     Padding="12,10"
+                     Foreground="White"/>
+            <Button Content="Send invite"
+                    Command="{Binding SendInviteCommand}"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Center"
+                    Background="#6366F1"
+                    Foreground="White"
+                    CornerRadius="8"
+                    Padding="0,10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="16,0,16,10" Spacing="10">
+            <Border Height="1" Background="#1A2744"/>
+            <TextBlock Text="Pending invites"
+                       FontSize="12" Foreground="#64748B"/>
+        </StackPanel>
+<!-- the fuckass invite lits-->
+        <ScrollViewer Grid.Row="3">
+            <ItemsControl ItemsSource="{Binding PendingInvites}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="services:user">
+                        <Border Padding="16,8" BorderBrush="#1A2744"
+                                BorderThickness="0,0,0,1">
+                            <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="6">
+                                <TextBlock Grid.Column="0"
+                                           Text="{Binding username}"
+                                           Foreground="#E2E8F0"
+                                           FontSize="13"
+                                           VerticalAlignment="Center"/>
+                                <Button Grid.Column="1"
+                                        Content="✓"
+                                        Command="{Binding $parent[UserControl].((vm:MainMenuViewModel)DataContext).AcceptInviteCommand}"
+                                        CommandParameter="{Binding}"
+                                        Background="#14532D"
+                                        Foreground="#86EFAC"
+                                        CornerRadius="6"
+                                        Width="30" Height="30"
+                                        Padding="0"
+                                        FontSize="14"/>
+                                <Button Grid.Column="2"
+                                        Content="✕"
+                                        Command="{Binding $parent[UserControl].((vm:MainMenuViewModel)DataContext).RefuseInviteCommand}"
+                                        CommandParameter="{Binding}"
+                                        Background="#450A0A"
+                                        Foreground="#FCA5A5"
+                                        CornerRadius="6"
+                                        Width="30" Height="30"
+                                        Padding="0"
+                                        FontSize="14"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</Border>
         <Border IsVisible="{Binding Is_setting_open}"
                 Background="#88000000">  
             <Border Background="#1E293B" Width="480" Height="380"

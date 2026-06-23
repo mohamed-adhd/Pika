@@ -211,6 +211,15 @@ public class database
         return tempo;
 
     }
+
+    public user search_by_username(string name)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText="INSERT INTO invites "
+    }
+    _main.Db.add_invite(_main.Id, temp.id);
     
     
 }

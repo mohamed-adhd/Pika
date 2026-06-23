@@ -22,6 +22,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty] private user? selectedUser;
     [ObservableProperty] private List<Messagestruct> selectedMessages=new();
     [ObservableProperty] private string messageToSend="";
+    [ObservableProperty] private string inviteUsername;
     
     partial void OnSelectedUserChanged(user? value)
     {
@@ -74,6 +75,13 @@ public partial class MainMenuViewModel : ViewModelBase
     private void close_setting()
     {
         Is_setting_open = false;
+    }
+
+    [RelayCommand]
+    private void sendInvite()
+    {
+        user temp = _main.Db.search_by_username(InviteUsername);
+        _main.Db.add_invite(_main.Id, temp.id);
     }
     [RelayCommand]
     private void SendMessage()
