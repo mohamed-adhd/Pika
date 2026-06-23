@@ -129,7 +129,7 @@ public partial class MainMenuViewModel : ViewModelBase
                 Messageslist = _main.Db.Fetchmessages(_main.Id);
                 Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
             }
-            else if (e.PropertyName == nameof(MainWindowViewModel.New_invites) && _main.New_invites.To==_main.id)
+            else if (e.PropertyName == nameof(MainWindowViewModel.New_invites) && _main.New_invites.To==_main.Id)
             {
                 _main.Db.add_invite(_main.New_invites.From,_main.New_invites.To);
                 PendingInvites = _main.Db.fetch_invites(_main.Id);
