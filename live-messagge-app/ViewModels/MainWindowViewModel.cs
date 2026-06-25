@@ -45,20 +45,18 @@ public partial class MainWindowViewModel : ObservableObject
                     }else if (p.Type=="add_user")
                     {
                         int s = p.Text.IndexOf("/");
-                        string username = p.Text.Substring(0,s-1);
-                        p.Text = p.Text.Substring(0, s);
+                        string username = p.Text.Substring(0,s);
+                        p.Text = p.Text.Substring(s+1);
                         s = p.Text.IndexOf("/");
-                        string name = p.Text.Substring(0,s-1);
-                        p.Text = p.Text.Substring(0, s);
+                        string name = p.Text.Substring(0,s);
+                        p.Text = p.Text.Substring(s+1);
                         s = p.Text.IndexOf("/");
-                        string pass = p.Text.Substring(0,s-1);
-                        p.Text = p.Text.Substring(0, s);
+                        string pass = p.Text.Substring(0,s);
+                        p.Text = p.Text.Substring(s+1);
                         s = p.Text.IndexOf("/");
-                        string username = p.Text.Substring(0,s-1);
-                        p.Text = p.Text.Substring(0, s);
-                        
-                        Db.add(p.From, p.To);
-                        New_invites = p;
+                        string gmail = p.Text.Substring(0,s);
+                        p.Text = p.Text.Substring(s+1);
+                        Db.add(username, name, pass, gmail);
                     }
                 }
             });
