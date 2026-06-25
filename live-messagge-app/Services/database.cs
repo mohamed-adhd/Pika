@@ -103,6 +103,38 @@ public class database
 
 
     }
+    public string get_gmail(string s)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText="SELECT gmail FROM users WHERE username=$d;";
+        cmd.Parameters.AddWithValue("$d", s);
+        using var res = cmd.ExecuteReader()!;
+        //!Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");-->
+        user temp=new();
+
+        res.Read();
+        return res.GetString(0);
+
+
+    }
+    public string get_pass(string s)
+    {
+        using var con = new SqliteConnection(path);
+        con.Open();
+        var cmd = con.CreateCommand();
+        cmd.CommandText="SELECT password FROM users WHERE username=$d;";
+        cmd.Parameters.AddWithValue("$d", s);
+        using var res = cmd.ExecuteReader()!;
+        //!Console.WriteLine($"DEBUG: user='{username}' pass='{passwd}' count={res}");-->
+        user temp=new();
+
+        res.Read();
+        return res.GetString(0);
+
+
+    }
     public user search_by_id(int id,int id2)
     {
         using var con = new SqliteConnection(path);
