@@ -1,3 +1,4 @@
+using System;
 using CommunityToolkit.Mvvm.Input;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -16,6 +17,8 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]private packet new_invites;
     
     [ObservableProperty]private bool news=false;
+    [ObservableProperty]private int accepted;
+    Random random = new Random();
     public database Db { get; } = new();
     public MainWindowViewModel()
     {
@@ -57,6 +60,9 @@ public partial class MainWindowViewModel : ObservableObject
                         string gmail = p.Text.Substring(0,s);
                         p.Text = p.Text.Substring(s+1);
                         Db.add(username, name, pass, gmail);
+                    }else if (p.Type == "accepted")
+                    {
+                        Accepted = random.Next();
                     }
                 }
             });

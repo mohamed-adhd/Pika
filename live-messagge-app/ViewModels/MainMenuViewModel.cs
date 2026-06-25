@@ -112,8 +112,9 @@ public partial class MainMenuViewModel : ViewModelBase
     }
     private void Main_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName != nameof(MainWindowViewModel.Updates) && 
-            e.PropertyName != nameof(MainWindowViewModel.New_invites))
+        if (e.PropertyName != nameof(MainWindowViewModel.Updates) &&
+            e.PropertyName != nameof(MainWindowViewModel.New_invites) &&
+            e.PropertyName != nameof(MainWindowViewModel.Accepted))
             return;
 
         Dispatcher.UIThread.Post(() =>
@@ -121,18 +122,29 @@ public partial class MainMenuViewModel : ViewModelBase
             if (e.PropertyName == nameof(MainWindowViewModel.Updates))
             {
                 if (SelectedUser == null) return;
+
                 var p = _main.Updates;
+
                 bool belongsToOpenChat =
                     (p.From == _main.Id && p.To == SelectedUser.id) ||
                     (p.From == SelectedUser.id && p.To == _main.Id);
+
                 if (belongsToOpenChat)
+                {
                     SelectedMessages = _main.Db.selecmsg(_main.Id, SelectedUser.id);
+                    Messageslist = _main.Db.Fetchmessages(_main.Id);
+                    Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
+                }
+            }
+            else if (e.PropertyName == nameof(MainWindowViewModel.New_invites))
+            {
+                if (_main.New_invites.To == _main.Id)
+                    PendingInvites = _main.Db.fetch_invites(_main.Id);
+            }
+            else if (e.PropertyName == nameof(MainWindowViewModel.Accepted))
+            {
                 Messageslist = _main.Db.Fetchmessages(_main.Id);
                 Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
-            }
-            else if (e.PropertyName == nameof(MainWindowViewModel.New_invites) && _main.New_invites.To==_main.Id)
-            {
-                PendingInvites = _main.Db.fetch_invites(_main.Id);
             }
         });
     }
@@ -147,6 +159,10 @@ public partial class MainMenuViewModel : ViewModelBase
         Messageslist = _main.Db.Fetchmessages(_main.Id);
         Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
         PendingInvites = _main.Db.fetch_invites(_main.Id);
+        packet p=new();
+        p.Type = "accepted";
+        _main.network.sendpacket(p);
+        
     }
     [RelayCommand]
     public void refuseInvite(invites i)
