@@ -21,6 +21,7 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty]private int accepted;
     Random random = new Random();
     public database Db { get; } = new();
+    public Notifahh notifs = new();
     public MainWindowViewModel()
     {
         connected=network.Connect("127.0.0.1", 8000);
@@ -49,11 +50,17 @@ public partial class MainWindowViewModel : ObservableObject
                         Db.addmsg(p.Text, p.From, p.To, s);
                         News = false;
                         Updates = p;
+                        string title = "new mesage from " + Db.get_username(p.From);
+                        notifs.notifi(title,p.Text,"/home/bro/my-creations/temp/live-messagge-app/live-messagge-app/Assets/logo.jpg");
                     }
                     else if (p.Type=="request")
                     {
                         Db.add_invite(p.From, p.To);
                         New_invites = p;
+                        string title = "new friend request";
+                        string body = Db.get_username(p.From) + "sent you a friend request";
+                        notifs.notifi(title,body,"/home/bro/my-creations/temp/live-messagge-app/live-messagge-app/Assets/logo.jpg");
+
                     }else if (p.Type=="add_user")
                     {
                         int s = p.Text.IndexOf("/");
