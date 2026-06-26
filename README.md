@@ -1,8 +1,5 @@
 <div align="center">
-
-  <img width="120" alt="Live Message logo" src="live-messagge-app/Assets/logo.jpg" />
-
-  <h1>Live Message App</h1>
+  <h1>Pika</h1>
 
   <p>
     <b>A full desktop messaging system built with Avalonia, .NET, SQLite, MVVM, TCP sockets, live updates, friend invites, account recovery, and Linux desktop notifications.</b>
