@@ -24,7 +24,42 @@
                 CornerRadius="16"
                 Padding="40,36"
                 Width="360">
+            
             <StackPanel Spacing="0">
+                <Border IsVisible="{Binding Deleted}"
+                        Background="#88000000"
+                        ZIndex="99">
+                    <Border Background="#1E293B" Width="320"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            CornerRadius="12" Padding="28,24">
+                        <StackPanel Spacing="0" HorizontalAlignment="Center">
+
+                            <TextBlock Text="🗑️"
+                                       FontSize="36"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,12"/>
+
+                            <TextBlock Text="Account deleted"
+                                       FontSize="16" FontWeight="Bold"
+                                       Foreground="#E2E8F0"
+                                       HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="your account has been permanently removed."
+                                       Foreground="#64748B" FontSize="12"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"
+                                       Margin="0,6,0,20"/>
+
+                            <Button Content="OK"
+                                    Command="{Binding DismissCommand}"
+                                    HorizontalAlignment="Stretch"
+                                    HorizontalContentAlignment="Center"
+                                    Background="#6366F1" Foreground="White"
+                                    CornerRadius="8" Padding="0,10"
+                                    FontSize="13"/>
+                        </StackPanel>
+                    </Border>
+                </Border>
                 <TextBlock Text="Welcome back"
                            FontSize="22"
                            FontWeight="Bold"

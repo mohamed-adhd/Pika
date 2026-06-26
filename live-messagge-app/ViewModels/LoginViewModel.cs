@@ -13,6 +13,7 @@ public partial class LoginViewModel : ViewModelBase
     public Views.MainMenu _men;
     public readonly database db;
     [ObservableProperty] public bool found=true;
+    [ObservableProperty] public bool deleted;
     [ObservableProperty] private string username;
     [ObservableProperty] private string password,connection_status="connection error";
 
@@ -23,6 +24,7 @@ public partial class LoginViewModel : ViewModelBase
         if (_main.Connected)
         {
             connection_status="connected";
+            Deleted = _main.Deleted;
         }
 
     }
@@ -31,6 +33,12 @@ public partial class LoginViewModel : ViewModelBase
     private void GoToRegister()
     {
         _main.Currentpage = new RegisterViewModel(_main);
+    }
+
+    [RelayCommand]
+    private void Dismiss()
+    {
+        Deleted = false;
     }
     [RelayCommand]
     private void GoToRecover()

@@ -84,7 +84,38 @@
                         </ListBox>
                         
                     </ScrollViewer>
-                    <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto"></Grid>
+                    <Grid Grid.Row="3" Margin="12,8" ColumnDefinitions="Auto,*,Auto">
+    
+                        <Border Grid.Column="0" Width="40" Height="40" CornerRadius="20" Background="#312E81">
+                            <TextBlock Text="{Binding Cu.username[0]}"
+                                       Foreground="#A5B4FC"
+                                       FontSize="14" FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center"
+                                    Margin="10,0" Spacing="2">
+                            <TextBlock Text="{Binding Cu.name}"
+                                       Foreground="#E2E8F0"
+                                       FontSize="13" FontWeight="Medium"/>
+                            <TextBlock Text="{Binding Cu.username}"
+                                       Foreground="#475569"
+                                       FontSize="11"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="2" Content="⏻"
+                                Command="{Binding GoToLoginCommand}"
+                                Width="32" Height="32"
+                                Background="#1A2744"
+                                Foreground="#64748B"
+                                CornerRadius="8"
+                                Margin="0,0,4,0"
+                                FontSize="16"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"/>
+
+                    </Grid>
                 </Grid>
             </Border>
                             
@@ -147,7 +178,7 @@
                               ColumnSpacing="10">
                             <TextBox Grid.Column="0"
                                      Text="{Binding MessageToSend}"
-                                     Watermark="Type a message..."
+                                     PlaceholderText="Type a message..."
                                      Background="#0B1020"
                                      Foreground="White"
                                      BorderBrush="#274B7A"
@@ -199,7 +230,6 @@
             <TextBlock Text="Pending invites"
                        FontSize="12" Foreground="#64748B"/>
         </StackPanel>
-<!-- the fuckass invite lits-->
         <ScrollViewer Grid.Row="3">
             <ItemsControl ItemsSource="{Binding PendingInvites}">
                 <ItemsControl.ItemTemplate>
@@ -248,7 +278,6 @@
             CornerRadius="12" Padding="0">
         <Grid RowDefinitions="Auto,*,Auto">
 
-            <!-- Header -->
             <Grid Grid.Row="0" Margin="24,20,24,0" ColumnDefinitions="*,Auto">
                 <TextBlock Grid.Column="0" Text="Settings"
                            FontSize="16" FontWeight="Bold" Foreground="#E2E8F0"
@@ -259,7 +288,6 @@
                         Width="28" Height="28" Padding="0"/>
             </Grid>
 
-            <!-- Terms -->
             <Border Grid.Row="1" Background="#0D1829" CornerRadius="8"
                     Padding="14,12" Margin="24,16,24,0">
                 <StackPanel Spacing="8">
@@ -270,7 +298,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Delete -->
             <Border Grid.Row="2" Background="#1A0A0A" BorderBrush="#7F1D1D"
                     BorderThickness="1" CornerRadius="8" Padding="14,12"
                     Margin="24,12,24,20">

@@ -20,6 +20,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty]private List<Messagestruct> messageslist = new();
     [ObservableProperty]private List<user> flist = new();
     [ObservableProperty] private user? selectedUser;
+    [ObservableProperty] private user cu;
     [ObservableProperty] private List<Messagestruct> selectedMessages=new();
     [ObservableProperty] private string messageToSend="";
     [ObservableProperty] private string inviteUsername;
@@ -44,6 +45,7 @@ public partial class MainMenuViewModel : ViewModelBase
     public MainMenuViewModel(MainWindowViewModel main)
     {
         _main = main;
+        Cu=_main.Db.search_by_id(_main.Id,_main.Id);
         PendingInvites = _main.Db.fetch_invites(_main.Id);
         Messageslist = _main.Db.Fetchmessages(_main.Id);
         Flist = _main.Db.Fetchfriends(Messageslist, _main.Id);
