@@ -269,21 +269,21 @@
                                Foreground="#475569" Margin="0,0,0,10"/>
 
                     <TextBlock Text="Username" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
-                    <TextBox Text="{Binding SettingUsername}"
+                    <TextBox Text="{Binding Setusername}"
                              Background="#0D1829" BorderBrush="#1A2744"
                              CornerRadius="8" Padding="12,10"
                              Foreground="White" CaretBrush="White"
                              Margin="0,0,0,12"/>
 
                     <TextBlock Text="Display name" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
-                    <TextBox Text="{Binding SettingName}"
+                    <TextBox Text="{Binding Setname}"
                              Background="#0D1829" BorderBrush="#1A2744"
                              CornerRadius="8" Padding="12,10"
                              Foreground="White" CaretBrush="White"
                              Margin="0,0,0,12"/>
 
                     <TextBlock Text="Gmail" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
-                    <TextBox Text="{Binding SettingGmail}"
+                    <TextBox Text="{Binding Setgmail}"
                              Background="#0D1829" BorderBrush="#1A2744"
                              CornerRadius="8" Padding="12,10"
                              Foreground="White" CaretBrush="White"
@@ -324,7 +324,7 @@
                             </StackPanel>
                             <Button Grid.Column="1"
                                     Content="Delete"
-                                    Command="{Binding DeleteAccountCommand}"
+                                    Command="{Binding DelaccCommand}"
                                     Background="#7F1D1D" Foreground="#FCA5A5"
                                     CornerRadius="8" Padding="14,8"
                                     FontSize="13" VerticalAlignment="Center"/>
@@ -336,12 +336,12 @@
 
             <!-- Footer: save button -->
             <Grid Grid.Row="2" Margin="24,16,24,20" ColumnDefinitions="*,Auto">
-                <TextBlock Grid.Column="0" Text="{Binding SettingInfo}"
+                <TextBlock Grid.Column="0" Text="{Binding Setinfo}"
                            Foreground="#64748B" FontSize="12"
                            VerticalAlignment="Center"/>
                 <Button Grid.Column="1"
                         Content="Save changes"
-                        Command="{Binding SaveSettingsCommand}"
+                        Command="{Binding savesetsCommand}"
                         Background="#6366F1" Foreground="White"
                         CornerRadius="8" Padding="16,9"
                         FontSize="13" FontWeight="Medium"/>

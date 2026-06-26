@@ -23,6 +23,10 @@ public partial class MainMenuViewModel : ViewModelBase
     [ObservableProperty] private List<Messagestruct> selectedMessages=new();
     [ObservableProperty] private string messageToSend="";
     [ObservableProperty] private string inviteUsername;
+    [ObservableProperty] private string setusername = "";
+    [ObservableProperty] private string setname = "";
+    [ObservableProperty] private string setgmail = "";
+    [ObservableProperty] private string setinfo = "";
     
     partial void OnSelectedUserChanged(user? value)
     {
@@ -48,7 +52,12 @@ public partial class MainMenuViewModel : ViewModelBase
     }
 
     
-    
+
+    [RelayCommand]
+    private void Delacc()
+    {
+        _main.db
+    }
     [RelayCommand]
     private void GoToLogin()
     {
