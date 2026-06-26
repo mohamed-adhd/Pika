@@ -242,12 +242,113 @@
     </Grid>
 </Border>
         <Border IsVisible="{Binding Is_setting_open}"
-                Background="#88000000">  
-            <Border Background="#1E293B" Width="480" Height="380"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    CornerRadius="12" Padding="0">
-                <!-- hold on i ll add ts later ,and avalonia stop messing with my fucking comments why u got my ass talking like a british 90s man...-->
-            </Border>
-        </Border>
+        Background="#88000000">
+    <Border Background="#1E293B" Width="500" Height="520"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            CornerRadius="12" Padding="0">
+        <Grid RowDefinitions="Auto,*,Auto">
+
+            <!-- Header -->
+            <Grid Grid.Row="0" Margin="24,20,24,0" ColumnDefinitions="*,Auto">
+                <TextBlock Grid.Column="0" Text="Settings"
+                           FontSize="16" FontWeight="Bold" Foreground="#E2E8F0"
+                           VerticalAlignment="Center"/>
+                <Button Grid.Column="1" Content="✕"
+                        Command="{Binding close_settingCommand}"
+                        Background="Transparent" Foreground="#64748B"
+                        Width="28" Height="28" Padding="0"/>
+            </Grid>
+
+            <!-- Content -->
+            <ScrollViewer Grid.Row="1" Margin="24,16,24,0">
+                <StackPanel Spacing="0">
+
+                    <!-- Profile section -->
+                    <TextBlock Text="PROFILE"
+                               FontSize="11" FontWeight="Bold"
+                               Foreground="#475569" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Username" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
+                    <TextBox Text="{Binding SettingUsername}"
+                             Background="#0D1829" BorderBrush="#1A2744"
+                             CornerRadius="8" Padding="12,10"
+                             Foreground="White" CaretBrush="White"
+                             Margin="0,0,0,12"/>
+
+                    <TextBlock Text="Display name" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
+                    <TextBox Text="{Binding SettingName}"
+                             Background="#0D1829" BorderBrush="#1A2744"
+                             CornerRadius="8" Padding="12,10"
+                             Foreground="White" CaretBrush="White"
+                             Margin="0,0,0,12"/>
+
+                    <TextBlock Text="Gmail" Foreground="#94A3B8" FontSize="12" Margin="0,0,0,6"/>
+                    <TextBox Text="{Binding SettingGmail}"
+                             Background="#0D1829" BorderBrush="#1A2744"
+                             CornerRadius="8" Padding="12,10"
+                             Foreground="White" CaretBrush="White"
+                             Margin="0,0,0,24"/>
+
+                    <!-- Divider -->
+                    <Border Height="1" Background="#1A2744" Margin="0,0,0,24"/>
+
+                    <!-- Terms and conditions -->
+                    <TextBlock Text="LEGAL" FontSize="11" FontWeight="Bold"
+                               Foreground="#475569" Margin="0,0,0,10"/>
+
+                    <Border Background="#0D1829" CornerRadius="8"
+                            Padding="14,12" Margin="0,0,0,24">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Terms of Service"
+                                       Foreground="#E2E8F0" FontSize="13" FontWeight="Medium"/>
+                            <TextBlock TextWrapping="Wrap" Foreground="#64748B" FontSize="12"
+                                       Text="By using Pika you agree not to use it for illegal activities, harassment, or spam. We store your messages and account info locally. We don't sell your data. Use it responsibly. Mohamed reserves the right to ban accounts that violate these terms."/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Divider -->
+                    <Border Height="1" Background="#1A2744" Margin="0,0,0,24"/>
+
+                    <!-- Danger zone -->
+                    <TextBlock Text="DANGER ZONE" FontSize="11" FontWeight="Bold"
+                               Foreground="#7F1D1D" Margin="0,0,0,10"/>
+
+                    <Border Background="#1A0A0A" BorderBrush="#7F1D1D"
+                            BorderThickness="1" CornerRadius="8" Padding="14,12">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Grid.Column="0" Spacing="4">
+                                <TextBlock Text="Delete account"
+                                           Foreground="#FCA5A5" FontSize="13" FontWeight="Medium"/>
+                                <TextBlock Text="This is permanent and cannot be undone."
+                                           Foreground="#64748B" FontSize="12"/>
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Content="Delete"
+                                    Command="{Binding DeleteAccountCommand}"
+                                    Background="#7F1D1D" Foreground="#FCA5A5"
+                                    CornerRadius="8" Padding="14,8"
+                                    FontSize="13" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <!-- Footer: save button -->
+            <Grid Grid.Row="2" Margin="24,16,24,20" ColumnDefinitions="*,Auto">
+                <TextBlock Grid.Column="0" Text="{Binding SettingInfo}"
+                           Foreground="#64748B" FontSize="12"
+                           VerticalAlignment="Center"/>
+                <Button Grid.Column="1"
+                        Content="Save changes"
+                        Command="{Binding SaveSettingsCommand}"
+                        Background="#6366F1" Foreground="White"
+                        CornerRadius="8" Padding="16,9"
+                        FontSize="13" FontWeight="Medium"/>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Border>
         </Grid>
 </UserControl>

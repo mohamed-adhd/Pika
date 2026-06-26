@@ -45,9 +45,9 @@ public partial class RecoverViewModel : ViewModelBase
                         
                         <h2 style="color: #6366F1;">🔑 Password Recovery</h2>
                         
-                        <p style="color: #333;">Hey <b>{R_username}</b>,</p>
+                        <p style="color: #333;">wsupp <b>{R_username}</b>,</p>
                         
-                        <p style="color: #333;">Here is your password:</p>
+                        <p style="color: #333;">Here is yo password:</p>
                         
                         <div style="background: #1a1a2e; color: #a5b4fc; font-size: 20px; font-weight: bold;
                                     padding: 16px; border-radius: 8px; text-align: center; letter-spacing: 2px;">
@@ -55,7 +55,7 @@ public partial class RecoverViewModel : ViewModelBase
                         </div>
                         
                         <p style="color: #666; font-size: 13px; margin-top: 24px;">
-                            If you didn't request this, don't worry — someone may have entered your username by mistake. 
+                            didn't request this? don't worry someone might've entered your username by mistake. 
                             You can safely ignore this email.
                         </p>
                         

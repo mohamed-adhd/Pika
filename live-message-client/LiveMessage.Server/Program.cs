@@ -26,6 +26,10 @@ void handle(TcpClient client)
         Console.WriteLine(tempo);
         foreach (TcpClient c in clients)
         {
+            if (c == client)
+            {
+                continue;
+            }
             NetworkStream outsream = c.GetStream();
             outsream.Write(buffer, 0, bytes);
         }
