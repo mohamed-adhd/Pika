@@ -12,6 +12,7 @@ public struct Messagestruct
     public int from_id{ get; set; }
     public int to_id{ get; set; }
     public int order{ get; set; }
+    public bool minebih { get; set; }
 
     
 }
@@ -292,6 +293,7 @@ public class database
             temp.to_id = res.GetInt32(1);
             temp.Text = res.GetString(2);
             temp.order = res.GetInt32(3);
+            temp.minebih = res.GetInt32(0) == id1;
             tempo.Add(temp);
 
         }

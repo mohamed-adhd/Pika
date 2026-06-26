@@ -104,14 +104,14 @@
                                        FontSize="11"/>
                         </StackPanel>
 
-                        <Button Grid.Column="2" Content="⏻"
+                        <Button Grid.Column="2" Content="⏻ "
                                 Command="{Binding GoToLoginCommand}"
                                 Width="32" Height="32"
+                                Padding="0"
                                 Background="#1A2744"
                                 Foreground="#64748B"
                                 CornerRadius="8"
-                                Margin="0,0,4,0"
-                                FontSize="16"
+                                FontSize="14"
                                 VerticalContentAlignment="Center"
                                 HorizontalContentAlignment="Center"/>
 
@@ -148,21 +148,32 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="services:Messagestruct">
-
-                                    <Border Background="#1A2744"
-                                            CornerRadius="14"
-                                            Padding="12,8"
-                                            Margin="0,4,0,4"
-                                            MaxWidth="420"
-                                            HorizontalAlignment="Left">
-
-                                        <TextBlock Text="{Binding Text}"
-                                                   Foreground="White"
-                                                   FontSize="15"
-                                                   TextWrapping="Wrap"/>
-
-                                    </Border>
-
+                                    <Grid>
+                                        <Border IsVisible="{Binding !minebih}"
+                                                Background="#1A2744"
+                                                CornerRadius="14"
+                                                Padding="12,8"
+                                                Margin="8,4"
+                                                MaxWidth="420"
+                                                HorizontalAlignment="Left">
+                                            <TextBlock Text="{Binding Text}"
+                                                       Foreground="White"
+                                                       FontSize="15"
+                                                       TextWrapping="Wrap"/>
+                                        </Border>
+                                        <Border IsVisible="{Binding minebih}"
+                                                Background="#274B7A"
+                                                CornerRadius="14"
+                                                Padding="12,8"
+                                                Margin="8,4"
+                                                MaxWidth="420"
+                                                HorizontalAlignment="Right">
+                                            <TextBlock Text="{Binding Text}"
+                                                       Foreground="White"
+                                                       FontSize="15"
+                                                       TextWrapping="Wrap"/>
+                                        </Border>
+                                    </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
 

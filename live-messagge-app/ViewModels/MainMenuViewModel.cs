@@ -58,9 +58,10 @@ public partial class MainMenuViewModel : ViewModelBase
     [RelayCommand]
     private void Delacc()
     {
+        _main.Deleted = true;
         _main.Currentpage = new LoginViewModel(_main);
         _main.Db.delete(_main.Id);
-        _main.Deleted = true;
+       
         packet p = new();
         p.From = _main.Id;
         p.Type = "delete";
