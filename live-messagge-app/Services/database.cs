@@ -223,10 +223,10 @@ public class database
 
     public void delete(int thid)
     {
-        using var con =new  SqliteConnection();
+        using var con =new  SqliteConnection(path);
         con.Open();
         using var cmd1 = con.CreateCommand();
-        cmd1.CommandText = "DELETE FROM messages WHERE from_id = @id OR to_id = @id";
+        cmd1.CommandText = "DELETE FROM chats WHERE from_id = @id OR to_id = @id";
         cmd1.Parameters.AddWithValue("@id",thid);
         cmd1.ExecuteNonQuery();
         using var cmd2 = con.CreateCommand();
