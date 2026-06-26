@@ -220,6 +220,16 @@ public class database
 
         return friends;
     }
+
+    public void delete(int thid)
+    {
+        using var con =new  SqliteConnection();
+        con.Open();
+        using var cmd1 = con.CreateCommand();
+        cmd1.CommandText = "DELETE FROM messages WHERE from_id = @id OR to_id = @id";
+        cmd1.Parameters.AddWithValue("@id",thid);
+        cmd1.ExecuteNonQuery();
+    }
     public int  neword(int id1,int id2){
         using var con = new SqliteConnection(path);
         con.Open();

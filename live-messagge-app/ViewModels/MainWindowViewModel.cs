@@ -22,6 +22,7 @@ public partial class MainWindowViewModel : ObservableObject
     Random random = new Random();
     public database Db { get; } = new();
     public Notifahh notifs = new();
+    [ObservableProperty]private bool deleted=false;
     public MainWindowViewModel()
     {
         connected=network.Connect("127.0.0.1", 8000);

@@ -56,7 +56,9 @@ public partial class MainMenuViewModel : ViewModelBase
     [RelayCommand]
     private void Delacc()
     {
-        _main.db
+        GoToLogin();
+        _main.Db.delete(_main.Id);
+        _main.Deleted = true;
     }
     [RelayCommand]
     private void GoToLogin()
