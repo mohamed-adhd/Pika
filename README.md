@@ -55,8 +55,6 @@ This is the biggest project in the collection because it touches UI architecture
 
 ## Screenshots
 
-Add screenshots here when you capture the app. Suggested order:
-
 | Screen | Placeholder |
 | --- | --- |
 | Login | <img width="1200" height="720" alt="image" src="https://github.com/user-attachments/assets/c98a1b24-d57d-402d-875a-72260c09456d" /> |
