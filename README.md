@@ -366,37 +366,7 @@ the most i enjoyed abt this project was the packet sending and recienving , it w
 ideas to add but my schedue is tight and i have the malware tester on hold , so maybe i ll ocme later to add more features from time to time , a bit simple  as
 my first contact with c# and avalonia but was enjoyable a lot 
 
-## Current Status
 
-| Area | Status |
-| --- | --- |
-| Avalonia desktop shell | Working |
-| Login/register screens | Working |
-| Password recovery screen | Working |
-| Main messenger layout | Working |
-| Conversation list | Working |
-| Friend invites | Working |
-| Local message persistence | Working |
-| TCP broadcast server | Working prototype |
-| Desktop notifications | Working on Linux with `notify-send` |
-| Account deletion | Working prototype |
-| Production authentication/security | Needs hardening |
-
-## What This Project Shows
-
-This repo demonstrates more than one library or one screen. It shows:
-
-| Skill | Evidence in the project |
-| --- | --- |
-| Desktop UI architecture | Avalonia views, data templates, MVVM page switching. |
-| State management | Observable properties, selected conversation state, invite panels, settings modal. |
-| Database work | SQLite queries for users, chats, invites, last messages, and account deletion. |
-| Networking | TCP client/server, packet serialization, live packet receiving. |
-| Async thinking | Background receive loop updates UI state through Avalonia dispatcher. |
-| Product thinking | Login, recovery, registration, messaging, invites, deletion, notifications. |
-| Debugging real systems | Handles multiple moving pieces that must stay synchronized. |
-
----
 
 <div align="center">
   <sub>Built with Avalonia, C#, SQLite, TCP sockets, MVVM, MailKit, and the stubborn idea that a desktop app should feel alive.</sub>
