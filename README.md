@@ -2,7 +2,7 @@
   <h1>Pika</h1>
 
   <p>
-    <b>A full desktop messaging system built with Avalonia, .NET, SQLite, MVVM, TCP sockets, live updates, friend invites, account recovery, and Linux desktop notifications.</b>
+    <b>A full desktop messaging system built with Avalonia, .NET, SQLite, MVVM, TCP sockets featuring live updates, friend invites, account recovery, and Linux desktop notifications.</b>
   </p>
 
   <p>
