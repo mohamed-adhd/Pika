@@ -365,6 +365,7 @@ shape it into somethign deployable , well so far the app is not a "production le
 the most i enjoyed abt this project was the packet sending and recienving , it was fun to customize your packets and send them in flows , i had wayyyyy more 
 ideas to add but my schedue is tight and i have the malware tester on hold , so maybe i ll ocme later to add more features from time to time , a bit simple  as
 my first contact with c# and avalonia but was enjoyable a lot 
+Update :refinement period is upcoming for this repo, will shape it into production level 
 
 
 
