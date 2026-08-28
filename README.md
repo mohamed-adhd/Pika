@@ -43,7 +43,6 @@
 The app supports the core flows expected from a messaging product:
 
 | Flow | What it does |
-| --- | --- |
 | Authentication | Login and registration screens backed by SQLite user records. |
 | Messaging | Chat with selected friends, store messages locally, and receive live updates from the network. |
 | Friend system | Send friend requests, accept/refuse incoming invites, and create a starter chat on acceptance. |
